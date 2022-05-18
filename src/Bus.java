@@ -81,7 +81,7 @@ public class Bus extends transport {
     @Override
     public void plusSpeed(int newSpeed) {
         if (getOilVolume() > 10) {
-
+            setOilVolume(getOilVolume() - 10);
             setNowSpeed(newSpeed);
         } else {
             System.out.println("주유량을 확인하세요");
@@ -92,6 +92,7 @@ public class Bus extends transport {
     @Override
     public void minusSpeed(int newSpeed) {
         if (getOilVolume() > 10) {
+            setOilVolume(getOilVolume() - 10);
             int minus = newSpeed * -1;
             setNowSpeed(minus);
         } else {

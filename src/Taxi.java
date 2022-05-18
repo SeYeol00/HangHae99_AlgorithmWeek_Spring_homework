@@ -114,6 +114,7 @@ public class Taxi extends transport {
         if (this.getOilVolume() < 10) {
             System.out.println("운행불가");
         } else {
+            setOilVolume(getOilVolume() - 5);
             this.setState("운행 중");
             System.out.println("운행 중");
         }
@@ -123,7 +124,7 @@ public class Taxi extends transport {
     @Override
     public void plusSpeed(int newSpeed) {
         if (this.getOilVolume() > 10) {
-
+            setOilVolume(getOilVolume() - 10);
             this.setNowSpeed(newSpeed);
         } else {
             System.out.println("주유량을 확인하세요");
@@ -134,6 +135,7 @@ public class Taxi extends transport {
     @Override
     public void minusSpeed(int newSpeed) {
         if (this.getOilVolume() > 10) {
+            setOilVolume(getOilVolume() - 10);
             int minus = newSpeed * -1;
             setNowSpeed(minus);
         } else {

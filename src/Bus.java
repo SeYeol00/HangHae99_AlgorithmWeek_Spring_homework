@@ -116,6 +116,7 @@ public class Bus extends transport {
         if (this.getOilVolume() < 10) {
             System.out.println("주유가 필요하다.");
         } else {
+            setOilVolume(getOilVolume() - 5);
             this.setState("운행");
             System.out.println("운행시작");
         }

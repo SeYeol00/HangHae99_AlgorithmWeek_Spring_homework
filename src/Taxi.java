@@ -35,6 +35,7 @@ public class Taxi extends transport {
         this.basicDistatnce = basicDis;
         this.destinationDistatnce = destinationDistatnce;
         this.destination = destination;
+
     }
 
     public String getDestination() {
@@ -115,8 +116,8 @@ public class Taxi extends transport {
             System.out.println("운행불가");
         } else {
             setOilVolume(getOilVolume() - 5);
-            this.setState("운행 중");
-            System.out.println("운행 중");
+            this.setState("일반");
+            System.out.println("일반으로 운행시작합니다.");
         }
 
     }
@@ -147,7 +148,9 @@ public class Taxi extends transport {
     @Override
     public void passengerRide(int addition) {
         if (this.getState() == "일반") {
-
+            setState("운행 중");
+        } else {
+            System.out.println("운행 중이므로 탑승 불가");
         }
 
     }

@@ -125,8 +125,9 @@ public class Taxi extends transport {
     @Override
     public void plusSpeed(int newSpeed) {
         if (this.getOilVolume() > 10) {
-            setOilVolume(getOilVolume() - 10);
-            this.setNowSpeed(newSpeed);
+            this.setOilVolume(getOilVolume() - 10);
+            int getNowSpeed = this.getNowSpeed() + newSpeed;
+            this.setNowSpeed(getNowSpeed);
         } else {
             System.out.println("주유량을 확인하세요");
         }
@@ -136,9 +137,10 @@ public class Taxi extends transport {
     @Override
     public void minusSpeed(int newSpeed) {
         if (this.getOilVolume() > 10) {
-            setOilVolume(getOilVolume() - 10);
+            this.setOilVolume(getOilVolume() - 10);
             int minus = newSpeed * -1;
-            setNowSpeed(minus);
+            int getNowSpeed = getNowSpeed() + minus;
+            this.setNowSpeed(getNowSpeed);
         } else {
             System.out.println("주유량을 확인하세요");
         }

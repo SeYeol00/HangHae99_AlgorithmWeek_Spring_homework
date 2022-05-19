@@ -15,7 +15,7 @@ public class Bus extends transport {
 
     private int nowPassenger;
 
-    public Bus(String busName, int oilVolume, int basicCost, int maxPassenger) {
+    public Bus(int oilVolume, int basicCost, int maxPassenger) {
         this.busName = UUID.randomUUID().toString();
         this.nowSpeed = 0;
         this.oilVolume = oilVolume;
@@ -80,9 +80,10 @@ public class Bus extends transport {
 
     @Override
     public void plusSpeed(int newSpeed) {
-        if (getOilVolume() > 10) {
-            setOilVolume(getOilVolume() - 10);
-            setNowSpeed(newSpeed);
+        if (this.getOilVolume() > 10) {
+            this.setOilVolume(getOilVolume() - 10);
+            int getNowSpeed = this.getNowSpeed() + newSpeed;
+            this.setNowSpeed(getNowSpeed);
         } else {
             System.out.println("주유량을 확인하세요");
         }
@@ -91,10 +92,11 @@ public class Bus extends transport {
 
     @Override
     public void minusSpeed(int newSpeed) {
-        if (getOilVolume() > 10) {
-            setOilVolume(getOilVolume() - 10);
+        if (this.getOilVolume() > 10) {
+            this.setOilVolume(getOilVolume() - 10);
             int minus = newSpeed * -1;
-            setNowSpeed(minus);
+            int getNowSpeed = getNowSpeed() + minus;
+            this.setNowSpeed(getNowSpeed);
         } else {
             System.out.println("주유량을 확인하세요");
         }
@@ -106,7 +108,8 @@ public class Bus extends transport {
         if (this.getNowPassenger() >= this.getMaxPassenger() || this.getState().equals("차고지행")) {
             System.out.println("사람이 더 들어 갈 수 없습니다.");
         } else if (this.getNowPassenger() < this.getMaxPassenger() && this.getState().equals("운행")) {
-            this.setNowPassenger(addition);
+            int whole = this.getNowPassenger() + addition;
+            this.setNowPassenger(whole);
             System.out.println("탑승 완료");
         }
     }

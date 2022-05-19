@@ -165,6 +165,7 @@ public class Taxi extends transport {
         } else {
             calculation = this.getBasicCost();
         }
+        System.out.println("요금은 " + calculation + "입니다.");
         return calculation;
     }
 
